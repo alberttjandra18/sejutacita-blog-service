@@ -4,6 +4,7 @@ const cors = require("cors");
 const port = process.env.PORT || 3000;
 
 const userRouter = require("./src/routes/user.route");
+const blogRouter = require("./src/routes/blog.route");
 
 const app = express();
 
@@ -22,7 +23,7 @@ app.use((req, res, next) => {
 });
 
 //for Routes
-app.use([userRouter]);
+app.use([userRouter, blogRouter]);
 
 app.get("/", (req, res) => {
   res.json({ message: "Home" });
