@@ -13,3 +13,6 @@ node_modules
 .env
 data
 storage
+.DS_Store
+.github/.DS_Store
+src/.DS_Store
