@@ -40,7 +40,7 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/vacanxe-backend:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/project-backend:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
 
@@ -54,7 +54,7 @@ jobs:
           command_timeout: 200m
           script_stop: true
           script: |
-            cd ~/vacanxe-be
+            cd ~/project-be
             docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
             docker-compose pull
             docker-compose --env-file ./.env up -d --remove-orphans
